@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset = "UTF-8">
+  <title>Index</title>
+  {% load static %}
+   <link rel = "stylesheet" href = "{% static 'css/bootstrap.min.css' %}"/>
+</head>
+<body>
+    <table class = "table table-stripped table-bordered table.sm">
+    <thead class = "thead-dark">
+    <tr>
+        <th>Customer ID</th>
+        <th>Full Name</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Contact No</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    {% for cust in customers %}
+    <tr>
+        <td>{{cust.Customer_id}}</td>
+        <td>{{cust.Full_name}}</td>
+        <td>{{cust.City}}</td>
+        <td>{{cust.State}}</td>
+        <td>{{cust.PhoneNo}}</td>
+        <td>
+            <a href = "/cart_contains" class = "btn btn-warning">Cart</a>
+            <a href = "/delete_cust/{{cust.id}}" class = "btn btn-danger">Delete Customer</a>
+        </td>
+
+    </tr>
+    {% endfor %}
+    </table>
+</body>
+<center><a href="/cust" class="btn btn-outline-warning">New Customer</a></center>
+<center><ph>New customer should add for Customer ID</ph></center>
+<br>      <center> <a href = "/" >Home</a></center>
+</html>

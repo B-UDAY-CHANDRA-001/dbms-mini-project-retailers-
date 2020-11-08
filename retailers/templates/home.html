@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+        {% load static %}
+       <link rel = "stylesheet" href = "{% static 'css/bootstrap.min.css' %}"/>
+    <center><h1 style="background-color:MediumSeaGreen;"> RETAIL STORE </h1></center>
+</head>
+<body>
+    <img src="{% static 'images/Retailers-banner.png'%}"/>
+    <br><br>
+    <h1>Products Avaliable</h1>
+    <table class = "table table-stripped table-bordered table.sm">
+    <thead class = "thead-dark">
+    <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Cost Price</th>
+        <th>Sell Price</th>
+        <th>Rating</th>
+    </tr>
+    </thead>
+    {% for item in items %}
+    <tr>
+        <td>{{item.Product_id}}</td>
+        <td>{{item.Product_name}}</td>
+        <td>{{item.Cost_price}}</td>
+        <td>{{item.Sell_price}}</td>
+        <td>{{item.Rating}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+   <center><a href = "/customers" class = "btn btn-info">Shop</a></center><br>
+ <center><a href = "/items" class = "btn btn-info">Products</a><br><br>
+ <center><a href = "/order_details" >Orders made by customers</a></center>
+ <center><a href = "/developer" >Developer</a></center>
+
+<br> <br><br><br>
+</body>
+</html>

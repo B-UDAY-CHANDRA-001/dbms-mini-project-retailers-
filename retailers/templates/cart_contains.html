@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart Details</title>
+          {% load static %}
+    <link rel = "stylesheet" href = "{% static 'css/bootstrap.min.css' %}"/>
+
+</head>
+<body>
+<center>
+    <h1>Customer Order </h1>
+    <form method="POST">
+        {% csrf_token %}
+    <table class = "table table-stripped table-bordered table.sm">
+        <tr>
+        <td>Customer ID</td>
+        <td><input type="text" placeholder="CustomerID" name="Customer_id"></td>
+        </tr>
+        <tr>
+        <td>Order ID</td>
+        <td><input type="text" placeholder="Order ID" name="Order_id"></td>
+        </tr>
+        <tr>
+        <td>Product ID</td>
+        <td><input type="text" placeholder="Product ID " name="Product_id"></td>
+        </tr>
+        <tr>
+        <td>Quantity</td>
+        <td><input type="text" placeholder="Quantity" name="Quantity"> </td>
+        </tr>
+        <tr>
+        <td>Price</td>
+        <td><input type="text" placeholder="Price" name="Price"></td>
+        </tr>
+        <tr>
+        <td>Date</td>
+        <td><input type="text" placeholder="Date" name="Date"></td>
+        </tr>
+        <tr>
+        <td>Order_status</td>
+        <td><input type="text" placeholder="Order_status" name="Order_status"></td>
+        </tr>
+    </table>
+<br><br>
+    <input type="submit" value="Done" class = "btn btn-success"/>
+
+        <br>
+        {% if messages %}
+        {% for display in messages %}
+        {{display}}
+        {% endfor %}
+        {% endif %}
+<br>
+    <ph>Only registered customers only!!<br>  </ph>
+        <a href = "/cust" >Register</a><br>
+        <a href = "/" >Home</a>
+</form>
+</center>
+
+
+</body>
+</html>

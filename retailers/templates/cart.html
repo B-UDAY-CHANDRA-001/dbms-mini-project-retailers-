@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+      {% load static %}
+    <link rel = "stylesheet" href = "{% static 'css/bootstrap.min.css' %}"/>
+</head>
+<body>
+
+
+<!--<form method="post" class = "post-form">
+          {% csrf_token %}
+      <div class = "container">
+  <br>
+      <div class = "form-group row">
+      <lable class = "col-sm-1 col-form-lable"></lable>
+      <div class = "col-sm-4">
+      <h1>Cart </h1>
+      </div>
+    </div>
+        <div class = "form-group row">
+        <lable class = "col-sm-2 col-form-label">Order ID:</lable>
+        <div class=" col-sm-4">
+          {{ form.Order_id }}
+        </div>
+    </div>
+
+        <div class = "form-group row">
+        <lable class = "col-sm-2 col-form-label">Customer ID:</lable>
+        <div class=" col-sm-4">
+          {{ form.Customer_id }}
+        </div>
+    </div>
+
+        <div class = "form-group row">
+        <lable class = "col-sm-2 col-form-label">Product ID:</lable>
+        <div class=" col-sm-4">
+          {{ form.Product_id }}
+        </div>
+    </div>
+
+        <div class = "form-group row">
+        <lable class = "col-sm-2 col-form-label">Quantity:</lable>
+        <div class=" col-sm-4">
+          {{ form.Quantity }}
+        </div>
+    </div>
+
+        <div class = "form-group row">
+        <lable class = "col-sm-2 col-form-label">Price:</lable>
+        <div class=" col-sm-4">
+          {{ form.Price }}
+        </div>
+    </div>
+
+        <div class = "form-group row">
+        <label class = "col-sm-1 col-form-label"></label>
+        <div class=" col-sm-4">
+        <button type = "submit" class = "btn btn-primary">Add</button>
+        </div>
+
+    </div>
+
+      </div>
+
+  </form>
+  -->
+<center><h1 style="background-color:White;">CART LIST</h1></center>
+    <table class = "table table-stripped table-bordered table.sm">
+    <thead class = "thead-dark">
+    <tr>
+        <th>Order ID</th>
+        <th>Customer ID:</th>
+        <th>Product ID:</th>
+        <th>Quantity:</th>
+        <th>Price:</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    {% for x in cart %}
+    <tr>
+        <td>{{x.Order_id}}</td>
+        <td>{{x.Customer_id}}</td>
+        <td>{{x.Product_id}}</td>
+        <td>{{x.Quantity}}</td>
+        <td>{{x.Price}}</td>
+        <td>
+            <a href = "/update_cart/{{x.id}}" class = "btn btn-warning">Update</a>
+            <a href = "/delete_cart/{{ x.id }}" class = "btn btn-danger">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </table>
+
+            <center><a href = "/order_details" class = "btn btn-primary">Details</a></center>
+<br><br><br><br>
+
+</body>`
+</html>
